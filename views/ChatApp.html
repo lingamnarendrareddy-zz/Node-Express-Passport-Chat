@@ -1,0 +1,134 @@
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color: #c4e3f3;
+            /*align: center;*/
+        }
+
+        h1 {
+            color: orangered;
+            font-style: italic;
+        }
+
+        div {
+            width: 500px;
+            height: 450px;
+            margin: 0 auto;
+            float: inherit;
+            overflow: auto;
+            background-color: #7ab5d3;
+
+        }
+
+        #chatRoom {
+            width: 500px;
+            height: 400px;
+            margin-right: 10px;
+            float: left;
+            color: saddlebrown;
+            font-style: italic;
+            position: relative;
+        }
+
+        #enterText {
+            color: saddlebrown;
+            font-weight: bold;
+        }
+
+        .button {
+            background-color: brown;
+            color: #ffffff;
+            align: center;
+        }
+
+        .textentered {
+            color: #000000;
+            font-style: normal;
+            font-size: smaller;
+        }
+    </style>
+
+    <title>Welcome to Node.js based chat application</title>
+    <script src="http://172.16.11.157:8080/socket.io/socket.io.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<script>
+
+    function resetText() {
+        //Resetting the focus
+        $('#text').val('')
+        $('#text').focus()
+    }
+
+    var socket = io.connect();
+
+    // on connection to server, get the username from passportjs
+    socket.on('connect', function (data) {
+        $("#chatRoom").append("<b>" + data.name + "</b> says::  <span class='textEntered'>" + data.data + " </span></br>&nbsp; &nbsp; &nbsp; <span class='textEntered'> on " + data.date + "</span></br>")
+        $('#displayName').append(data.cilentName);
+        resetText()
+    });
+
+
+    //Receiving the data from chat server
+    socket.on('data', function (data) {
+        if (data.data.trim() == 'alert')
+            alert('New Message from:: ' + data.name)
+        else {
+            $("#chatRoom").append("<b>" + data.name + "</b> says::  <span class='textEntered'>" + data.data + " </span></br>&nbsp; &nbsp; &nbsp; <span class='textEntered'> on " + data.date + "</span></br>")
+            $("#chatRoom").scrollTop($("#chatRoom")[0].scrollHeight);
+        }
+    });
+
+    $(document).ready(function () {
+
+        //Submitting the data to chat server
+        $('input[type=button]').click(function () {
+            var userText = $('#text').val()
+            var userName = $('#displayName').text()
+
+            //if user presses refresh, refresh the window
+            //else, send the data to chat server
+            if (userText == 'refresh')
+            //location.reload();
+                $("#chatRoom").html(' ')
+            else
+                socket.emit('client_data', {'userName': userName, 'userText': userText});
+            resetText()
+        });
+
+        // when the client hits ENTER on their keyboard
+        $('#text').keypress(function (e) {
+            if (e.which == 13) {
+                $(this).blur();
+                //This Stops IE from triggering the button to be clicked
+                e.preventDefault();
+                $('input[type=button]').focus().click();
+            }
+        });
+    });
+</script>
+<a href="/account"><p align='right' id='displayName'></P></a>
+<a href="/logout"><p align='right'>Sign out</P></a>
+
+<h1 align='center'>Welcome to Node.js Based Chat Application</h1>
+
+<div>
+    <div id='chatRoom'>
+        <!--your chat content is displayed here-->
+    </div>
+    <table align='center'>
+        <tr>
+            <td><span id='enterText'>Enter Text: </span></td>
+            <td><input id="text" type="text" style="width:200px;"/></td>
+            <td>
+                &nbsp; &nbsp; &nbsp; <!--input class="button" type="submit" value="Submit"-->
+                <input class="button" type="button" value="Submit"/>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

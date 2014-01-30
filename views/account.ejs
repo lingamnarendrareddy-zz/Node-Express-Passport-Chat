@@ -1,0 +1,34 @@
+<p>ID: <%= user.identifier %></p>
+<p>Name: <%= user.displayName %></p>
+<% if( user.emails) { %>
+    <p>Email: <%= user.emails[0].value %></p>
+<% } %>
+<h1>Values in User:: </h1>
+<ul>
+    <% for(var propName in user) { %>
+        <li>
+                <%= propName %> ::
+                <%= user[propName]%>
+        </li>
+    <% } %>
+</ul>
+
+<h1>Values in user.emails:: </h1>
+<ul>
+    <% for(var propName in user.emails) { %>
+        <li>
+                <%= propName %> ::
+                <%= user.emails[propName].value%>
+        </li>
+    <% } %>
+</ul>
+
+<h1>Values in user.name:: </h1>
+<ul>
+    <% for(var propName in user.name) { %>
+        <li>
+                <%= propName %> ::
+                <%= user.name[propName]%>
+        </li>
+    <% } %>
+</ul>
