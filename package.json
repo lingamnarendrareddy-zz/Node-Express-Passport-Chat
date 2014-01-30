@@ -6,13 +6,11 @@
         "ejs": ">= 0.0.0",
         "socket.io": ">= 0.0.0",
         "util": ">= 0.0.0",
-        "http": ">= 0.0.0",
         "passport": ">= 0.0.0",
         "passport-twitter": ">= 0.0.0",
         "passport-facebook": ">= 0.0.0",
         "passport-github": ">= 0.0.0",
         "passport-google-oauth": ">= 0.0.0",
-        "passport-linkedin": ">= 0.0.0",
-        "path": ">=0.0.0"
+        "passport-linkedin": ">= 0.0.0"
     }
 }
