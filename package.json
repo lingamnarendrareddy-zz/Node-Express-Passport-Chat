@@ -1,5 +1,5 @@
 {
-    "name": "Narendra Reddy Lingam Chat App",
+    "name": "Narendra-Reddy-Lingam-Chat-App",
     "version": "1.0.0",
     "dependencies": {
         "express": "<= 2.5.11",
