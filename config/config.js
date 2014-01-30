@@ -1,4 +1,3 @@
-
 var path = require('path')
   , rootPath = path.normalize(__dirname + '/..')
   , templatePath = path.normalize(__dirname + '/../app/mailer/templates')
@@ -24,27 +23,27 @@ module.exports = {
     facebook: {
       clientID: "APP_ID",
       clientSecret: "APP_SECRET",
-      callbackURL: "http://lnr.thematisse.org:8080/auth/facebook/callback"
+      callbackURL: "http://localhost:8080/auth/facebook/callback"
     },
     twitter: {
       clientID: "CONSUMER_KEY",
       clientSecret: "CONSUMER_SECRET",
-      callbackURL: "http://lnr.thematisse.org:8080/auth/twitter/callback"
+      callbackURL: "http://localhost:8080/auth/twitter/callback"
     },
     github: {
       clientID: 'APP_ID',
       clientSecret: 'APP_SECRET',
-      callbackURL: 'http://lnr.thematisse.org:8080/auth/github/callback'
+      callbackURL: 'http://localhost:8080/auth/github/callback'
     },
     google: {
       clientID: "APP_ID",
       clientSecret: "APP_SECRET",
-      callbackURL: "http://lnr.thematisse.org:8080/auth/google/callback"
+      callbackURL: "http://localhost:8080/auth/google/callback"
     },
     linkedin: {
       clientID: "CONSUMER_KEY",
       clientSecret: "CONSUMER_SECRET",
-      callbackURL: "http://lnr.thematisse.org:8080/auth/linkedin/callback"
+      callbackURL: "http://localhost:8080/auth/linkedin/callback"
     }
     }
   },
@@ -58,27 +57,27 @@ module.exports = {
     facebook: {
       clientID: "APP_ID",
       clientSecret: "APP_SECRET",
-      callbackURL: "http://lnr.thematisse.org:8080/auth/facebook/callback"
+      callbackURL: "http://localhost:8080/auth/facebook/callback"
     },
     twitter: {
       clientID: "CONSUMER_KEY",
       clientSecret: "CONSUMER_SECRET",
-      callbackURL: "http://lnr.thematisse.org:8080/auth/twitter/callback"
+      callbackURL: "http://localhost:8080/auth/twitter/callback"
     },
     github: {
       clientID: 'APP_ID',
       clientSecret: 'APP_SECRET',
-      callbackURL: 'http://lnr.thematisse.org:8080/auth/github/callback'
+      callbackURL: 'http://localhost:8080/auth/github/callback'
     },
     google: {
       clientID: "APP_ID",
       clientSecret: "APP_SECRET",
-      callbackURL: "http://lnr.thematisse.org:8080/auth/google/callback"
+      callbackURL: "http://localhost:8080/auth/google/callback"
     },
     linkedin: {
       clientID: "CONSUMER_KEY",
       clientSecret: "CONSUMER_SECRET",
-      callbackURL: "http://lnr.thematisse.org:8080/auth/linkedin/callback"
+      callbackURL: "http://localhost:8080/auth/linkedin/callback"
     }
   },
   production: {}
